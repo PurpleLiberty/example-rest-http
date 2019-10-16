@@ -38,7 +38,7 @@
         <version.restassured>4.1.1</version.restassured>       
         <version.openliberty.maven.plugin>3.1</version.openliberty.maven.plugin>
 
-         <fabric8.generator.from>docker.io/bhdaniel/open-liberty-s2i:19.0.0.9</fabric8.generator.from>   
+         <fabric8.generator.from>docker.io/openliberty/open-liberty-s2i:19.0.0.9</fabric8.generator.from>   
     </properties>
 
     <!-- Specify the repositories containing RHOAR artifacts. -->
