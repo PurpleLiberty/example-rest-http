@@ -178,7 +178,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>rest-http</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
