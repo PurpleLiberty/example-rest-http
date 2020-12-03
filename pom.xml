@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~
-  ~  Copyright 2016-2017 Red Hat, Inc, IBM, and individual contributors.
+  ~  Copyright 2016-2020 Red Hat, Inc, IBM, and individual contributors.
   ~
   ~  Licensed under the Apache License, Version 2.0 (the "License");
   ~  you may not use this file except in compliance with the License.
@@ -35,10 +35,10 @@
         <version.arquillian-cube>1.18.2</version.arquillian-cube>
         <version.fabric8-maven-plugin>4.3.0</version.fabric8-maven-plugin>
         <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin>
-        <version.restassured>4.1.1</version.restassured>       
-        <version.openliberty.maven.plugin>3.1</version.openliberty.maven.plugin>
+        <version.restassured>4.1.1</version.restassured>
+        <version.openliberty.maven.plugin>3.2.4</version.openliberty.maven.plugin>
 
-         <fabric8.generator.from>docker.io/openliberty/open-liberty-s2i:19.0.0.9</fabric8.generator.from>   
+        <fabric8.generator.from>docker.io/openliberty/open-liberty-s2i:19.0.0.9</fabric8.generator.from>
     </properties>
 
     <!-- Specify the repositories containing RHOAR artifacts. -->
@@ -90,16 +90,16 @@
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>3.0</version>
+            <version>3.3</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
-        
+
         <!-- For tests -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -149,7 +149,7 @@
             <artifactId>shrinkwrap-api</artifactId>
             <scope>test</scope>
         </dependency>
-    
+
         <!-- Support for JDK 9 and above -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
@@ -192,11 +192,12 @@
                 <version>${version.openliberty.maven.plugin}</version>
 
                 <configuration>
-                   
+
                     <bootstrapProperties>
                         <default.http.port>${http.port}</default.http.port>
                         <default.https.port>${https.port}</default.https.port>
                         <app.context.root>/</app.context.root>
+                        <project.artifactId>${project.artifactId}</project.artifactId>
                     </bootstrapProperties>
                 </configuration>
                 <executions>
@@ -209,7 +210,7 @@
                             <goal>configure-arquillian</goal>
                             <goal>deploy</goal>
                         </goals>
-                    
+
                     </execution>
 
                     <execution>
@@ -219,7 +220,7 @@
                         </goals>
                         <configuration>
                             <packageName>rest-http-openliberty</packageName>
-                            <include>runnable</include>                            
+                            <include>runnable</include>
                         </configuration>
                     </execution>
                 </executions>
